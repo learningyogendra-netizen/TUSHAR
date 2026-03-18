@@ -560,7 +560,28 @@
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
+      align-items: start;
       gap: 24px;
+    }
+
+    .projects-grid .project-card:nth-child(1) {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+    }
+
+    .projects-grid .project-card:nth-child(2) {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .projects-grid .project-card:nth-child(3) {
+      grid-column: 2;
+      grid-row: 2 / span 2;
+    }
+
+    .projects-grid .project-card:nth-child(4) {
+      grid-column: 1;
+      grid-row: 3;
     }
 
     .project-card {
@@ -590,6 +611,11 @@
       overflow: hidden;
       position: relative;
       background: #0d0d0b;
+    }
+
+    .projects-grid .project-card:nth-child(1) .project-thumb,
+    .projects-grid .project-card:nth-child(3) .project-thumb {
+      height: 560px;
     }
 
     .project-card.wide .project-thumb {
@@ -765,39 +791,63 @@
     }
 
     /* ===================== ABOUT ===================== */
-    .about-inner {
+    .about-top {
+      display: grid;
+      grid-template-columns: 7fr 3fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .about-bottom {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
+      gap: 24px;
+      align-items: stretch;
+      margin-top: 24px;
     }
 
-    .about-photo {
-      max-width: 320px;
-      width: 100%;
-      aspect-ratio: 4/5;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      background: var(--bg-card);
-    }
-
-    .about-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .about-bottom-left,
+    .about-bottom-right {
+      display: flex;
+      flex-direction: column;
     }
 
     .about-content {
-      padding-top: 8px;
+      background: #100f0d;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-photo-wrapper {
+      background: #ff6800;
+      border-radius: var(--radius-lg);
+      padding-top: 40px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .about-photo-wrapper img {
+      width: 50%;
+      height: auto;
+      object-fit: contain;
+      object-position: bottom;
+      display: block;
     }
 
     .about-intro {
       font-family: var(--font-heading);
-      font-size: clamp(24px, 3vw, 32px);
-      font-weight: 400;
+      font-size: clamp(24px, 3vw, 28px);
+      font-weight: 500;
       color: var(--color-white);
-      letter-spacing: -1.2px;
-      line-height: 1.3;
+      letter-spacing: -0.5px;
+      line-height: 1.4;
       margin-bottom: 24px;
     }
 
@@ -817,46 +867,61 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
       margin-top: 40px;
-      margin-bottom: 48px;
+      margin-bottom: 24px;
     }
 
     .stat-card {
-      background: var(--bg-accent);
-      border-radius: var(--radius-md);
-      padding: 24px 20px;
+      background: #100f0d;
+      border: 1px solid rgba(255, 104, 0, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 56px 20px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .stat-num {
       font-family: var(--font-heading);
       font-size: 48px;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--color-green);
       letter-spacing: -1px;
       line-height: 1;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
     .stat-label {
-      font-size: 14px;
-      color: var(--color-muted);
+      font-size: 15px;
+      color: var(--color-subtle);
       line-height: 1.4;
     }
 
     /* Experience */
+    .exp-wrapper {
+      background: #100f0d;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
     .exp-title {
       font-family: var(--font-heading);
       font-size: 26px;
-      font-weight: 400;
+      font-weight: 500;
       color: var(--color-white);
       letter-spacing: -1px;
       margin-bottom: 8px;
     }
 
     .exp-sub {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--color-muted);
       margin-bottom: 32px;
+      line-height: 1.6;
     }
 
     .exp-list {
@@ -867,21 +932,50 @@
 
     .exp-item {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border-color);
+      padding: 24px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .exp-item:first-child {
-      border-top: 1px solid var(--border-color);
+    .exp-item:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .exp-item:last-of-type {
+      padding-bottom: 0;
+    }
+
+    .exp-company-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .exp-company-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .exp-company-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .exp-company {
       font-family: var(--font-heading);
-      font-size: 19px;
-      font-weight: 400;
+      font-size: 18px;
+      font-weight: 500;
       color: var(--color-white);
       letter-spacing: -0.5px;
       margin-bottom: 4px;
@@ -893,12 +987,12 @@
     }
 
     .exp-period {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-color);
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 100px;
-      padding: 5px 12px;
-      font-size: 13px;
-      color: var(--color-muted);
+      padding: 6px 14px;
+      font-size: 12px;
+      color: var(--color-subtle);
       white-space: nowrap;
       flex-shrink: 0;
     }
@@ -913,54 +1007,113 @@
     }
 
     /* Tools */
-    .tools-section {
-      margin-top: 0;
+    .tools-wrapper {
+      background: #100f0d;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      height: 100%;
     }
 
     .tools-title {
       font-family: var(--font-heading);
       font-size: 26px;
-      font-weight: 400;
+      font-weight: 500;
       color: var(--color-white);
       letter-spacing: -1px;
       margin-bottom: 8px;
     }
 
     .tools-sub {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--color-muted);
       margin-bottom: 32px;
+      line-height: 1.6;
     }
 
     .tools-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
 
     .tool-chip {
-      background: var(--bg-card-2);
+      background: rgba(255, 255, 255, 0.03);
       border-radius: var(--radius-md);
-      padding: 20px 16px;
+      padding: 24px 16px;
       text-align: center;
-      border: 1px solid var(--border-color);
+      border: 1px solid transparent;
       transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
     }
 
     .tool-chip:hover {
-      border-color: rgba(9, 216, 138, 0.2);
-      background: rgba(9, 216, 138, 0.04);
+      border-color: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.06);
     }
 
     .tool-chip .tool-icon {
       font-size: 28px;
-      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+    }
+
+    .tool-chip .tool-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .tool-chip .tool-name {
+      font-size: 13px;
+      color: var(--color-subtle);
+    }
+
+    /* Contact Banner Box */
+    .contact-banner-box {
+      grid-column: 1 / -1;
+      background: #100f0d;
+      border: 1px solid rgba(255, 104, 0, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 32px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .contact-banner-box:hover {
+      border-color: rgba(255, 104, 0, 0.8);
+      background: rgba(255, 104, 0, 0.05);
+    }
+
+    .contact-banner-text {
       font-family: var(--font-heading);
-      font-size: 15px;
-      color: var(--color-muted);
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--color-green);
+      text-decoration: underline;
+    }
+
+    .contact-banner-arrow {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--color-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-green);
+      font-size: 20px;
     }
 
     /* CTA Banner */
@@ -1106,7 +1259,9 @@
 
     /* ===================== RESPONSIVE ===================== */
     @media (max-width: 1024px) {
-      .about-inner {
+
+      .about-top,
+      .about-bottom {
         grid-template-columns: 1fr;
       }
 
@@ -1164,6 +1319,11 @@
 
       .projects-grid {
         grid-template-columns: 1fr;
+      }
+
+      .projects-grid .project-card:nth-child(n) {
+        grid-column: 1;
+        grid-row: auto;
       }
 
       .project-card.wide {
@@ -1387,76 +1547,6 @@
     </div>
   </section>
 
-  <!-- ==================== WORK ==================== -->
-  <section class="section" id="work">
-    <div class="container">
-      <div class="work-header">
-        <div>
-          <span class="section-tag">Design Highlights</span>
-          <h2 class="section-title">My work, your<br /><span class="accent">next inspiration.</span></h2>
-        </div>
-      </div>
-
-      <!-- Row 1: 2 columns -->
-      <div class="projects-grid animate-in">
-        <a class="project-card" href="https://uiuxworkportfolio.framer.website/pension" target="_blank" rel="noopener">
-          <div class="project-thumb">
-            <img src="https://framerusercontent.com/images/c8pFSUqlDZYdJrGicQGG3EXjBBM.jpg?scale-down-to=1024"
-              alt="Livbetta" loading="lazy" />
-          </div>
-          <div class="project-info">
-            <div class="project-cat">Mobile App Design</div>
-            <div class="project-name">Livbetta</div>
-            <div class="project-desc">Liv lets professionals manage pensions, track contributions, forecast growth, and
-              access funds securely.</div>
-          </div>
-          <div class="project-arrow">↗</div>
-        </a>
-
-        <a class="project-card" href="https://zaibatsutechnology.co.uk/" target="_blank" rel="noopener">
-          <div class="project-thumb">
-            <img src="https://framerusercontent.com/images/L6liXSsTbQdNcttiXsCXBbRote0.png?scale-down-to=1024"
-              alt="Zaibatsu Technology" loading="lazy" />
-          </div>
-          <div class="project-info">
-            <div class="project-cat">Website Design</div>
-            <div class="project-name">zaibatsutechnology</div>
-            <div class="project-desc">UK agency providing AI & digital solutions, boosting business growth for 5+ years.
-            </div>
-          </div>
-          <div class="project-arrow">↗</div>
-        </a>
-
-        <a class="project-card" href="https://uiuxworkportfolio.framer.website/flatable" target="_blank" rel="noopener">
-          <div class="project-thumb">
-            <img src="https://framerusercontent.com/images/TD5nMDkLUnqeTS2iznoB0OwbyxY.png?scale-down-to=1024"
-              alt="Flatable" loading="lazy" />
-          </div>
-          <div class="project-info">
-            <div class="project-cat">Mobile App Design</div>
-            <div class="project-name">Flatable</div>
-            <div class="project-desc">Flatable makes finding or offering a shared flat easy and hassle-free.</div>
-          </div>
-          <div class="project-arrow">↗</div>
-        </a>
-
-        <a class="project-card" href="https://uiuxworkportfolio.framer.website/python-developer" target="_blank"
-          rel="noopener">
-          <div class="project-thumb">
-            <img src="https://framerusercontent.com/images/RwjMEOnIU6sG0aTAOonjVYal8.png?scale-down-to=1024"
-              alt="Hire Python Developers" loading="lazy" />
-          </div>
-          <div class="project-info">
-            <div class="project-cat">Website Design</div>
-            <div class="project-name">Hire Python Developers</div>
-            <div class="project-desc">Hire expert Python developers to build robust, scalable, and efficient solutions
-              tailored to your business needs.</div>
-          </div>
-          <div class="project-arrow">↗</div>
-        </a>
-      </div>
-  </section>
-
 
 
 
@@ -1469,24 +1559,33 @@
       <span class="section-tag">About Me</span>
       <h2 class="section-title">Designing products<br /><span class="accent">with purpose</span> and clarity.</h2>
 
-      <div class="about-inner" style="margin-top: 60px;">
+      <div class="about-top" style="margin-top: 40px;">
         <div class="about-content animate-in">
           <p class="about-intro">
-            <span style="text-transform:uppercase">I'</span>m Tushar
+            I'm Tushar
             <span class="accent">UI/UX, Graphic designer</span> based in Indore
           </p>
-          <p class="about-text">
+          <p class="about-text" style="font-size: 14px;">
             I've worked with teams of all sizes, from agencies to solo projects. No matter the scale, I bring clarity,
             structure, and a passion for human-centered design.
           </p>
-          <p class="about-text">
+          <p class="about-text" style="font-size: 14px; margin-bottom: 0;">
             Over the years, I've developed skills across strategy, research, and visual design. I lead with empathy and
             support decisions with data when needed. I've helped shape roadmaps, mentored junior designers, and built
             design systems from the ground up. Every project is an opportunity to grow, innovate, and create something
             meaningful.
           </p>
+        </div>
 
-          <div class="about-stats">
+        <div class="animate-in about-photo-wrapper">
+          <img src="https://framerusercontent.com/images/6s3k50E6DabcLXblD2HNMiEXyyg.png" alt="Tushar Verma"
+            loading="lazy" />
+        </div>
+      </div>
+
+      <div class="about-bottom">
+        <div class="about-bottom-left animate-in">
+          <div class="about-stats" style="margin-top: 0;">
             <div class="stat-card">
               <div class="stat-num">1.6+</div>
               <div class="stat-label">Years of Experience</div>
@@ -1501,31 +1600,31 @@
             </div>
           </div>
 
-          <!-- Work experiences matched to left column -->
-          <div style="margin-top: 60px;">
+          <!-- Work experiences -->
+          <div class="exp-wrapper" style="margin-top: 24px;">
             <div class="exp-title">Work experiences</div>
             <div class="exp-sub">I've spent over 1.6 years designing products for startups, SaaS companies, and
               enterprise clients. From creating MVPs to building design systems.</div>
             <div class="exp-list">
               <div class="exp-item">
-                <div>
-                  <div class="exp-company">Pioneer Designs</div>
-                  <div class="exp-role">UI/UX Designer</div>
+                <div class="exp-company-group">
+                  <div class="exp-company-logo">
+                    <!-- Placeholder icon if logo not available -->
+                    <span style="font-size: 20px;">💼</span>
+                  </div>
+                  <div>
+                    <div class="exp-company">Pioneer Designs</div>
+                    <div class="exp-role">UI/UX Designer</div>
+                  </div>
                 </div>
                 <div class="exp-period">Oct 2024 – Present</div>
               </div>
             </div>
           </div>
-
         </div>
 
-        <div class="animate-in">
-          <div class="about-photo">
-            <img src="https://framerusercontent.com/images/6s3k50E6DabcLXblD2HNMiEXyyg.png" alt="Tushar Verma"
-              loading="lazy" />
-          </div>
-
-          <div class="tools-section" style="margin-top: 40px;">
+        <div class="about-bottom-right animate-in">
+          <div class="tools-wrapper">
             <div class="tools-title">Tools I used</div>
             <div class="tools-sub">I use Figma, Adobe Creative Suite, and other industry tools to bring ideas to life.
               Keeping the process smooth across teams.</div>
@@ -1569,6 +1668,74 @@
       </div>
     </div>
   </section>
+
+
+
+  <!-- ==================== WORK ==================== -->
+  <section class="section" id="work">
+    <div class="container">
+      <div class="work-header">
+        <div>
+          <span class="section-tag">Design Highlights</span>
+          <h2 class="section-title">My work, your<br /><span class="accent">next inspiration.</span></h2>
+        </div>
+      </div>
+
+      <!-- Row 1: 2 columns -->
+      <div class="projects-grid animate-in">
+        <a class="project-card" href="" target="_blank" rel="noopener">
+          <div class="project-thumb">
+            <img src="images/project/p1.png" alt="Livbetta" loading="lazy" />
+          </div>
+          <div class="project-info">
+            <div class="project-cat">Mobile App Design</div>
+            <div class="project-name">Livbetta</div>
+            <div class="project-desc">Liv lets professionals manage pensions, track contributions, forecast growth, and
+              access funds securely.</div>
+          </div>
+          <div class="project-arrow">↗</div>
+        </a>
+
+        <a class="project-card" href="" target="_blank" rel="noopener">
+          <div class="project-thumb">
+            <img src="images/project/p2.png" alt="Zaibatsu Technology" loading="lazy" />
+          </div>
+          <div class="project-info">
+            <div class="project-cat">Website Design</div>
+            <div class="project-name">zaibatsutechnology</div>
+            <div class="project-desc">UK agency providing AI & digital solutions, boosting business growth for 5+ years.
+            </div>
+          </div>
+          <div class="project-arrow">↗</div>
+        </a>
+
+        <a class="project-card" href="" target="_blank" rel="noopener">
+          <div class="project-thumb">
+            <img src="images/project/p3.png" alt="Flatable" loading="lazy" />
+          </div>
+          <div class="project-info">
+            <div class="project-cat">Mobile App Design</div>
+            <div class="project-name">Flatable</div>
+            <div class="project-desc">Flatable makes finding or offering a shared flat easy and hassle-free.</div>
+          </div>
+          <div class="project-arrow">↗</div>
+        </a>
+
+        <a class="project-card" href="" target="_blank" rel="noopener">
+          <div class="project-thumb">
+            <img src="images/project/p4.png" alt="Hire Python Developers" loading="lazy" />
+          </div>
+          <div class="project-info">
+            <div class="project-cat">Website Design</div>
+            <div class="project-name">Hire Python Developers</div>
+            <div class="project-desc">Hire expert Python developers to build robust, scalable, and efficient solutions
+              tailored to your business needs.</div>
+          </div>
+          <div class="project-arrow">↗</div>
+        </a>
+      </div>
+  </section>
+
 
   <!-- ==================== FOOTER ==================== -->
   <footer class="footer">
