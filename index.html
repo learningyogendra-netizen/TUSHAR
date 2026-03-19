@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon"  href="images/favicon.ico" />
   <title>Tushar Verma — UI/UX Designer Portfolio</title>
   <meta name="description"
     content="A curated collection of UI/UX projects showcasing design thinking, user-centered solutions, and interactive prototypes. Designed with a focus on accessibility, usability, and modern web standards." />
@@ -61,8 +62,8 @@
       --bg-card: rgba(255, 104, 0, 0.1);
       --bg-card-2: rgba(255, 104, 0, 0.2);
       --bg-accent: #1c2e27;
-      --color-green: #ff6800;
-      --color-white: #eeeed3;
+      --color-green: rgba(255,104,0,1);
+      --color-white: #ffffff;
       --color-muted: #9fa099;
       --color-subtle: #c8c8c4;
       --border-color: rgba(255, 104, 0, 1);
@@ -106,7 +107,7 @@
       align-items: center;
       gap: 8px;
       background: transparent;
-      border: 1px solid var(--border-color);
+      border: 1px solid  #3d3e3c;;
       border-radius: 100px;
       padding: 6px 16px;
       font-size: 11px;
@@ -157,23 +158,13 @@
       color: #080502;
     }
 
-    .btn-primary:hover {
-      background: #0cf5a0;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(9, 216, 138, 0.25);
-    }
 
     .btn-outline {
       background: transparent;
       color: var(--color-green);
-      border: 1.5px solid rgba(9, 216, 138, 0.4);
+      border: 1.5px solid rgba(255, 104, 0, 1)
     }
 
-    .btn-outline:hover {
-      border-color: var(--color-green);
-      background: rgba(9, 216, 138, 0.08);
-      transform: translateY(-2px);
-    }
 
     /* ===================== PILL BADGE ===================== */
     .badge {
@@ -202,24 +193,24 @@
       background: rgba(8, 5, 2, 0.7);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--border-color);
+      border: 2px solid #3d3e3c;
       border-radius: 100px;
-      padding: 12px 24px;
-      width: min(700px, calc(100vw - 40px));
+      padding: 12px 12px;
+      width: min(1200px, calc(100vw - 40px));
       transition: var(--transition);
     }
 
-    .nav-logo {
-      font-family: var(--font-heading);
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--color-white);
-      white-space: nowrap;
+    .nav-container{
+      display: flex;
+      align-items: center;
+      gap: 32px;
     }
 
-    .nav-logo span {
-      color: var(--color-green);
+    .nav-logo {
+     height: 40px;
+     width: 40px;
     }
+
 
     .nav-links {
       display: flex;
@@ -237,10 +228,7 @@
       text-transform: capitalize;
     }
 
-    .nav-links a:hover {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.08);
-    }
+
 
     .nav-cta {
       background: rgba(255, 104, 0, 0.1) !important;
@@ -255,10 +243,6 @@
       display: flex;
       align-items: center;
       gap: 6px;
-    }
-
-    .nav-cta:hover {
-      background: rgba(255, 104, 0, 1) !important;
     }
 
     .nav-dot {
@@ -330,7 +314,7 @@
       align-items: center;
       gap: 8px;
       background: transparent;
-      border: 1px solid var(--border-color);
+      border: 2px solid #3d3e3c;;
       border-radius: 100px;
       padding: 7px 18px;
       font-size: 11px;
@@ -339,6 +323,7 @@
       text-transform: uppercase;
       color: var(--color-white);
       margin-bottom: 28px;
+      padding: 12px 12px;
       position: relative;
       z-index: 1;
     }
@@ -377,11 +362,11 @@
     }
 
     .hero-photo-bg {
-      background: var(--color-green);
-      border-radius: var(--radius-lg);
+      /* background: var(--color-green); */
+      /* border-radius: var(--radius-lg); */
       overflow: hidden;
       width: 100%;
-      height: 350px;
+      /* height: 350px; */
       position: relative;
     }
 
@@ -390,55 +375,10 @@
       height: 100%;
       object-fit: cover;
       object-position: top center;
-      mix-blend-mode: luminosity;
-      filter: contrast(1.05);
+      /* mix-blend-mode: luminosity; */
+      /* filter: contrast(1.05); */
     }
 
-    /* Floating role pills */
-    .hero-pill {
-      position: absolute;
-      background: rgba(8, 5, 2, 0.85);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 100px;
-      padding: 8px 16px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #fff;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      animation: floatPill 4s ease-in-out infinite;
-    }
-
-    .hero-pill::before {
-      content: '';
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--color-green);
-      flex-shrink: 0;
-    }
-
-    .hero-pill.pill-1 {
-      bottom: 44%;
-      left: -18px;
-      animation-delay: 0s;
-    }
-
-    .hero-pill.pill-2 {
-      bottom: 28%;
-      right: -18px;
-      animation-delay: 1.2s;
-    }
-
-    .hero-pill.pill-3 {
-      bottom: 12%;
-      left: 12px;
-      animation-delay: 0.6s;
-    }
 
     @keyframes floatPill {
 
@@ -475,10 +415,6 @@
       font-weight: 400;
       transition: var(--transition);
       text-decoration: none;
-    }
-
-    .hero-contact-item:hover {
-      color: var(--color-green);
     }
 
     .hci-icon {
@@ -585,7 +521,7 @@
     }
 
     .project-card {
-      background: var(--bg-card);
+      background: #11120f;
       border-radius: var(--radius-lg);
       overflow: hidden;
       position: relative;
@@ -596,7 +532,7 @@
     }
 
     .project-card:hover {
-      border-color: rgba(9, 216, 138, 0.2);
+      border-color: rgba(255,104,0, 0.5);
       transform: translateY(-4px);
       box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
     }
@@ -610,7 +546,8 @@
       height: 320px;
       overflow: hidden;
       position: relative;
-      background: #0d0d0b;
+      /* background: #0d0d0b; */
+      padding: 28px 32px 32px;
     }
 
     .projects-grid .project-card:nth-child(1) .project-thumb,
@@ -627,6 +564,7 @@
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
+      border-radius: 10px;
     }
 
     .project-card:hover .project-thumb img {
@@ -640,17 +578,18 @@
       align-items: center;
       justify-content: center;
       font-size: 64px;
-      background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+      /* background: linear-gradient(135deg, #111 0%, #1a1a1a 100%); */
     }
 
     .project-info {
-      padding: 28px 32px 32px;
+      padding: 0 32px 32px;
     }
 
     .project-cat {
       font-size: 13px;
       font-weight: 500;
       color: var(--color-green);
+      /* color: var(--color-green); */
       margin-bottom: 10px;
       letter-spacing: -0.2px;
     }
@@ -671,28 +610,6 @@
       color: var(--color-muted);
     }
 
-    .project-arrow {
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(9, 216, 138, 0.1);
-      border: 1px solid rgba(9, 216, 138, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--color-green);
-      font-size: 18px;
-      transition: var(--transition);
-      opacity: 0;
-    }
-
-    .project-card:hover .project-arrow {
-      opacity: 1;
-      transform: rotate(-45deg);
-    }
 
     /* Second row: 3 columns */
     .projects-grid-3 {
@@ -715,13 +632,17 @@
     }
 
     .service-card {
-      background: var(--bg-card);
+      background: #11120f;
       border-radius: var(--radius-lg);
-      padding: 32px;
+      padding: 20px 10px;
       border: 1px solid transparent;
       transition: var(--transition);
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .service-card::before {
@@ -736,25 +657,18 @@
       transition: var(--transition);
     }
 
-    .service-card:hover {
-      border-color: rgba(255, 104, 0, 1);
-      transform: translateY(-4px);
-    }
 
-    .service-card:hover::before {
-      opacity: 1;
-    }
 
     .service-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: var(--radius-md);
-      background: rgba(9, 216, 138, 0.1);
+      width: 50px;
+      height: 50px;
+      /* border-radius: var(--radius-md); */
+      /* background: rgba(9, 216, 138, 0.1); */
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 26px;
-      margin-bottom: 24px;
+      margin-bottom: 10px;
     }
 
     .service-name {
@@ -816,25 +730,25 @@
       background: #100f0d;
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-lg);
-      padding: 40px;
+      padding: 0 40px;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
     .about-photo-wrapper {
-      background: #ff6800;
-      border-radius: var(--radius-lg);
-      padding-top: 40px;
+      /* background: #ff6800; */
+      /* border-radius: var(--radius-lg); */
+      /* padding-top: 40px; */
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
-      overflow: hidden;
-      position: relative;
+ 
+      width: 100%;
     }
 
     .about-photo-wrapper img {
-      width: 50%;
+      width: 100%;
       height: auto;
       object-fit: contain;
       object-position: bottom;
@@ -848,7 +762,7 @@
       color: var(--color-white);
       letter-spacing: -0.5px;
       line-height: 1.4;
-      margin-bottom: 24px;
+      /* margin-bottom: 24px; */
     }
 
     .about-intro .accent {
@@ -1051,10 +965,7 @@
       gap: 12px;
     }
 
-    .tool-chip:hover {
-      border-color: rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.06);
-    }
+
 
     .tool-chip .tool-icon {
       font-size: 28px;
@@ -1091,10 +1002,7 @@
       transition: var(--transition);
     }
 
-    .contact-banner-box:hover {
-      border-color: rgba(255, 104, 0, 0.8);
-      background: rgba(255, 104, 0, 0.05);
-    }
+
 
     .contact-banner-text {
       font-family: var(--font-heading);
@@ -1138,14 +1046,10 @@
       text-decoration: underline;
     }
 
-    .cta-banner-text:hover {
-      color: #0cf5a0;
-    }
-
     /* ===================== FOOTER ===================== */
     .footer {
-      background: #080502;
-      border-top: 1px solid var(--border-color);
+      background: #11120f;
+      /* border-top: 1px solid var(--border-color); */
       padding: 80px 0 40px;
     }
 
@@ -1167,7 +1071,7 @@
 
     .footer-divider {
       border: none;
-      border-top: 1px solid var(--border-color);
+      border-top: 1px solid #232610;
       margin: 40px 0;
     }
 
@@ -1184,9 +1088,7 @@
       color: var(--color-white);
     }
 
-    .footer-email a:hover {
-      color: var(--color-green);
-    }
+
 
     .footer-links {
       display: flex;
@@ -1207,10 +1109,7 @@
       transition: var(--transition);
     }
 
-    .footer-social-link:hover {
-      border-color: var(--color-green);
-      color: var(--color-green);
-    }
+
 
     .footer-copy {
       font-size: 13px;
@@ -1263,6 +1162,9 @@
       .about-top,
       .about-bottom {
         grid-template-columns: 1fr;
+      }
+      .about-content {
+        padding: 20px 20px;
       }
 
       .about-photo {
@@ -1383,13 +1285,15 @@
 
   <!-- ==================== NAVBAR ==================== -->
   <nav class="navbar" id="navbar">
-    <div class="nav-logo">T<span>.</span></div>
+    <div class="nav-container">
+    <img src="images/logo.png" alt="Tushar Verma Logo" class="nav-logo" />
     <div class="nav-links">
       <a href="#about-me">About Me</a>
       <a href="#what-i-do">What I Do</a>
       <a href="#work">Work</a>
       <a href="https://drive.google.com/file/d/1OtOogNfxNnSd1oy4qV8HwL9Z1EKmNndY/view?usp=sharing" target="_blank"
         rel="noopener">Resume</a>
+    </div>
     </div>
     <a href="https://wa.me/917828660210" target="_blank" rel="noopener" class="nav-cta">
       <span class="nav-dot"></span>
@@ -1437,13 +1341,9 @@
         <!-- LEFT: photo card -->
         <div class="hero-photo-wrap">
           <div class="hero-photo-bg">
-            <img src="https://framerusercontent.com/images/nwX72sgKuoSPgfYgUeKxUR9o6g.png" alt="Tushar Verma"
+            <img src="images/tushar1.png" alt="Tushar Verma"
               loading="eager" />
           </div>
-          <!-- Floating pills -->
-          <div class="hero-pill pill-1">Branding &amp; Market Research</div>
-          <div class="hero-pill pill-2">UI/UX Designer</div>
-          <div class="hero-pill pill-3">Graphic Designer</div>
         </div>
 
         <!-- RIGHT: details -->
@@ -1495,62 +1395,33 @@
 
       <div class="services-grid animate-in">
         <div class="service-card">
-          <div class="service-icon">🎨</div>
+          <img src="images/SVG1.png" alt="" class="service-icon">
           <div class="service-name">UI/UX Design</div>
         </div>
         <div class="service-card">
-          <div class="service-icon">✏️</div>
-          <div class="service-name">Wireframing & Prototyping</div>
+              <img src="images/SVG2.png" alt="" class="service-icon">
+              <div class="service-name">Wireframing & Prototyping</div>
         </div>
         <div class="service-card">
-          <div class="service-icon">📱</div>
+          <img src="images/SVG3.png" alt="" class="service-icon">
           <div class="service-name">Mobile App Design</div>
         </div>
         <div class="service-card">
-          <div class="service-icon">🗂️</div>
+          <img src="images/SVG4.png" alt="" class="service-icon">
           <div class="service-name">Design Systems</div>
         </div>
         <div class="service-card">
-          <div class="service-icon">🔍</div>
+          <img src="images/SVG5.png" alt="" class="service-icon">
           <div class="service-name">User Research</div>
         </div>
 
         <div class="service-card">
-          <div class="service-icon">🌐</div>
+          <img src="images/SVG6.png" alt="" class="service-icon">
           <div class="service-name">Web App Design</div>
-        </div>
-      </div>
-      <!-- Web App Design as full row card -->
-      <div class="services-grid services-grid-col animate-in" style="margin-top:20px;gap:20px;">
-        <div class="service-card"
-          style="background: linear-gradient(135deg, #1c2e27 0%, #0d1e17 100%); border: 1px solid rgba(9,216,138,0.15);">
-          <div style="display:flex; align-items:center; gap: 16px; flex-wrap:wrap;">
-            <div class="service-cta-text">Curious what else I do?</div>
-            <div class="service-cta-sub">Take a closer look at my complete design skillset. You might find your perfect
-              match.</div>
-          </div>
-          <a href="#work" class="btn btn-primary" style="align-self:flex-start;">See My Projects</a>
-        </div>
-        <div class="service-card"
-          style="background: linear-gradient(135deg, #1c2e27 0%, #0d1e17 100%); border: 1px solid rgba(9,216,138,0.15);">
-          <div style="display:flex; align-items:center; gap: 16px; flex-wrap:wrap;">
-            <div>
-              <div class="service-name" style="margin-bottom:8px;">Ready to create something remarkable?</div>
-              <div style="font-size:14px; color:var(--color-muted);">Let's discuss how I can help elevate your digital
-                product.</div>
-            </div>
-            <a href="https://wa.me/8141419495" target="_blank" rel="noopener" class="btn btn-primary"
-              style="flex-shrink:0; white-space:nowrap;">Let's Talk 💬</a>
-          </div>
-        </div>
+        </img>
       </div>
     </div>
   </section>
-
-
-
-
-
 
 
   <!-- ==================== ABOUT ==================== -->
@@ -1578,7 +1449,7 @@
         </div>
 
         <div class="animate-in about-photo-wrapper">
-          <img src="https://framerusercontent.com/images/6s3k50E6DabcLXblD2HNMiEXyyg.png" alt="Tushar Verma"
+          <img src="images/tushar2.png" alt="Tushar Verma"
             loading="lazy" />
         </div>
       </div>
@@ -1683,30 +1554,29 @@
 
       <!-- Row 1: 2 columns -->
       <div class="projects-grid animate-in">
-        <a class="project-card" href="" target="_blank" rel="noopener">
+        <a class="project-card" href="https://chimentodesign.com/" target="_blank" rel="noopener">
           <div class="project-thumb">
             <img src="images/project/p1.png" alt="Livbetta" loading="lazy" />
           </div>
           <div class="project-info">
-            <div class="project-cat">Mobile App Design</div>
-            <div class="project-name">Livbetta</div>
-            <div class="project-desc">Liv lets professionals manage pensions, track contributions, forecast growth, and
-              access funds securely.</div>
+            <div class="project-cat">Website Design</div>
+            <div class="project-name">Chimento Design</div>
+            <div class="project-desc">A luxury interior design company specializing in bespoke cruise ship and marine interiors, blending Italian craftsmanship with innovative, turnkey solutions.</div>
           </div>
-          <div class="project-arrow">↗</div>
+          
         </a>
 
-        <a class="project-card" href="" target="_blank" rel="noopener">
+        <a class="project-card" href="https://proskii.in/" target="_blank" rel="noopener">
           <div class="project-thumb">
             <img src="images/project/p2.png" alt="Zaibatsu Technology" loading="lazy" />
           </div>
           <div class="project-info">
             <div class="project-cat">Website Design</div>
-            <div class="project-name">zaibatsutechnology</div>
-            <div class="project-desc">UK agency providing AI & digital solutions, boosting business growth for 5+ years.
+            <div class="project-name">Proskii</div>
+            <div class="project-desc">A modern health-focused food brand creating high-protein, zero-added sugar cereals designed for busy, health-conscious Indian lifestyles.
             </div>
           </div>
-          <div class="project-arrow">↗</div>
+        
         </a>
 
         <a class="project-card" href="" target="_blank" rel="noopener">
@@ -1718,7 +1588,7 @@
             <div class="project-name">Flatable</div>
             <div class="project-desc">Flatable makes finding or offering a shared flat easy and hassle-free.</div>
           </div>
-          <div class="project-arrow">↗</div>
+        
         </a>
 
         <a class="project-card" href="" target="_blank" rel="noopener">
@@ -1731,7 +1601,7 @@
             <div class="project-desc">Hire expert Python developers to build robust, scalable, and efficient solutions
               tailored to your business needs.</div>
           </div>
-          <div class="project-arrow">↗</div>
+       
         </a>
       </div>
   </section>
